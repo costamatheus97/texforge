@@ -1,0 +1,89 @@
+{
+ "name": "forest",
+ "out": "out/forest",
+ "world_cm": 200,
+ "size": 2048,
+ "albedo": {
+  "floor_lin": 0.03,
+  "ceil_lin": 0.8,
+  "note": "linear-light luminance: p0.5 >= floor (no crushed blacks), p99.5 <= ceil (no blown highlights); per-layer mean band below"
+ },
+ "height": {
+  "mean": 0.5,
+  "std": 0.18,
+  "note": "every ground layer height is re-centred to this mean and spread so layers are comparable in a height blend"
+ },
+ "layers": [
+  {
+   "name": "dirt_v2",
+   "role": "ground",
+   "type": "organic",
+   "normal_from": "height",
+   "rough": 0.8,
+   "albedo_mean_lin": [
+    0.06,
+    0.13
+   ],
+   "subject": "bare forest dirt and damp mud: dark brown soil with fine grain and crumbs, a few tiny pebbles and hair-thin rootlets, slightly wet, nothing growing on it",
+   "scale": "Soil crumbs are 2 to 5 millimetres, the largest pebbles about 1 cm.",
+   "normal_strength": 1.1,
+   "height_blur": 1.2
+  }
+ ],
+ "macro": {
+  "name": "macro",
+  "world_cm": 3000,
+  "size": 2048,
+  "seed": 7
+ },
+ "atlas": {
+  "name": "litter",
+  "size": 2048,
+  "sheet_cm": 90,
+  "rows": [
+   [
+    "leaf",
+    5,
+    "autumn forest leaves of oak, beech, birch and maple (flat, brown, orange, yellow, rust)"
+   ],
+   [
+    "twig",
+    4,
+    "dry brown twigs and thin sticks with small side branches"
+   ],
+   [
+    "pinecone",
+    3,
+    "brown pinecones, scales open, seen from the side or from above"
+   ],
+   [
+    "bark_chip",
+    4,
+    "irregular pieces of dark bark and wood chips"
+   ]
+  ]
+ },
+ "blend": {
+  "size_cm": 400,
+  "px": 1536,
+  "sharpness": 0.18,
+  "seed": 3,
+  "lights": [
+   [
+    -0.8,
+    -0.3,
+    0.5
+   ],
+   [
+    0.0,
+    -0.85,
+    0.5
+   ],
+   [
+    0.8,
+    0.3,
+    0.5
+   ]
+  ]
+ }
+}

@@ -1,0 +1,102 @@
+{
+  "name": "forest",
+  "out": "out/forest",
+  "world_cm": 200,
+  "size": 2048,
+  "albedo": {
+    "floor_lin": 0.03,
+    "ceil_lin": 0.8,
+    "note": "linear-light luminance: p0.5 >= floor (no crushed blacks), p99.5 <= ceil (no blown highlights); per-layer mean band below"
+  },
+  "height": {
+    "mean": 0.5,
+    "std": 0.18,
+    "note": "every ground layer height is re-centred to this mean and spread so layers are comparable in a height blend"
+  },
+  "layers": [
+    {
+      "name": "moss_v2",
+      "role": "ground",
+      "type": "organic",
+      "normal_from": "height",
+      "rough": 0.95,
+      "albedo_mean_lin": [
+        0.06,
+        0.09
+      ],
+      "subject": "natural forest-floor cushion moss, clumped cushions with dark soil gaps (see out/forest/moss_v2/moss_v2_prompt.txt: the source image was generated with that prompt, not the kit template)",
+      "scale": "Individual moss fronds are 2 to 5 millimetres, cushions 3 to 10 cm.",
+      "floor_lin": 0.018,
+      "material_profile": "moss",
+      "albedo_balance_lin": [
+        0.85,
+        1.05,
+        1.3
+      ]
+    },
+    {
+      "name": "pine_needles_v2",
+      "role": "ground",
+      "type": "organic",
+      "normal_from": "codex",
+      "rough": 0.85,
+      "albedo_mean_lin": [
+        0.06,
+        0.14
+      ],
+      "subject": "a forest floor under pine trees: a dense layer of fallen brown and orange-brown pine needles lying in all directions, with two or three thin woody roots and a few small twigs crossing it",
+      "scale": "Pine needles are 8 to 15 cm long and 1 to 2 millimetres thick, roots 1 to 3 cm thick.",
+      "hue_chroma": {
+        "hue_range": [
+          58,
+          86
+        ],
+        "hue_strength": 0.85,
+        "chroma_scale": 0.72,
+        "chroma_max": 22
+      }
+    },
+    {
+      "name": "grassy_dirt_v2",
+      "role": "ground",
+      "type": "organic",
+      "normal_from": "height",
+      "height_from": "luminance",
+      "rough": 0.88,
+      "albedo_mean_lin": [
+        0.06,
+        0.13
+      ],
+      "material_profile": "generic",
+      "subject": "damp forest soil with sparse short trampled grass clumps and leaf debris (source generated from out/forest/grassy_dirt_v2/grassy_dirt_v2_prompt.txt)",
+      "scale": "Grass tufts 2 to 5 cm, leaf fragments 3 to 8 cm.",
+      "hue_chroma": {
+        "hue_range": [
+          48,
+          80
+        ],
+        "hue_strength": 0.5,
+        "chroma_max": 26
+      }
+    },
+    {
+      "name": "grassy_dirt_v3",
+      "role": "ground",
+      "type": "organic",
+      "normal_from": "height",
+      "height_from": "hybrid",
+      "rough": 0.88,
+      "albedo_mean_lin": [
+        0.07,
+        0.12
+      ],
+      "material_profile": "generic",
+      "subject": "patchy short living green grass tufts over dark damp humus soil, forest edge (source generated from out/forest/grassy_dirt_v3/grassy_dirt_v3_prompt.txt, candidate 2 of 3)",
+      "scale": "Grass tufts 5 to 20 cm across, blades 2 to 6 cm, leaf fragments under 4 cm.",
+      "normal_strength": 1.5,
+      "height_blur": 6.0,
+      "tuft_mound": 0.08
+    }
+  ],
+  "report": "kit_v2"
+}

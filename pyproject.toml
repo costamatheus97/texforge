@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "texforge"
+version = "0.1.0"
+description = "AI-painted image to game-ready, seamlessly tiling PBR texture sets, decals, trim sheets and atlases"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.13",
+    "opencv-python-headless>=4.10",
+    "scikit-image>=0.24",
+    "pillow>=10.4",
+]
+
+[project.scripts]
+texforge = "texforge.cli:main_entry"
+
+[tool.setuptools]
+packages = ["texforge"]

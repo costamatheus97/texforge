@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Wrapper: runs texforge from a source checkout without installing it.
+# Uses $TEXFORGE_PYTHON if set, else the active virtualenv's python, else `python3` on PATH.
+# (With `pip install -e .` the plain `texforge` command exists and this wrapper is not needed.)
+ROOT="$(dirname "$(dirname "$(readlink -f "$0")")")"
+PY="${TEXFORGE_PYTHON:-${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/python}}"
+PY="${PY:-python3}"
+PYTHONPATH="$ROOT${PYTHONPATH:+:$PYTHONPATH}" exec "$PY" -m texforge "$@"
